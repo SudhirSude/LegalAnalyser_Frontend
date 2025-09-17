@@ -24,17 +24,17 @@ const RiskGauge = ({ score }: RiskGaugeProps) => {
 
   return (
     <div className="relative w-48 h-48 mx-auto">
-      {/* Holographic Base */}
+      {/* Modern Base */}
       <motion.div
-        className="absolute inset-4 rounded-full bg-cyber-dark/30 border-2 border-neon-blue/20"
+        className="absolute inset-4 rounded-full bg-cyber-dark/20 border border-neon-blue/10"
         animate={{
           boxShadow: [
-            "0 0 20px hsl(var(--neon-blue) / 0.3)",
-            "0 0 30px hsl(var(--neon-blue) / 0.5)",
-            "0 0 20px hsl(var(--neon-blue) / 0.3)"
+            "0 0 5px hsl(var(--neon-blue) / 0.1)",
+            "0 0 8px hsl(var(--neon-blue) / 0.2)",
+            "0 0 5px hsl(var(--neon-blue) / 0.1)"
           ]
         }}
-        transition={{ duration: 2, repeat: Infinity }}
+        transition={{ duration: 3, repeat: Infinity }}
       />
 
       {/* SVG Gauge */}
@@ -56,16 +56,16 @@ const RiskGauge = ({ score }: RiskGaugeProps) => {
           cy="50"
           r="45"
           stroke={`hsl(var(--${score <= 30 ? 'risk-low' : score <= 60 ? 'risk-medium' : score <= 80 ? 'risk-high' : 'risk-critical'}))`}
-          strokeWidth="8"
+          strokeWidth="6"
           fill="transparent"
           strokeLinecap="round"
           strokeDasharray={strokeDasharray}
           initial={{ strokeDasharray: "0 283" }}
           animate={{ strokeDasharray }}
-          transition={{ duration: 2, ease: "easeOut" }}
-          className="drop-shadow-lg"
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="drop-shadow-sm"
           style={{
-            filter: `drop-shadow(0 0 8px hsl(var(--${score <= 30 ? 'risk-low' : score <= 60 ? 'risk-medium' : score <= 80 ? 'risk-high' : 'risk-critical'})))`
+            filter: `drop-shadow(0 0 3px hsl(var(--${score <= 30 ? 'risk-low' : score <= 60 ? 'risk-medium' : score <= 80 ? 'risk-high' : 'risk-critical'})))`
           }}
         />
       </svg>
@@ -87,11 +87,11 @@ const RiskGauge = ({ score }: RiskGaugeProps) => {
         </motion.div>
       </div>
 
-      {/* Floating Risk Indicators */}
+      {/* Risk Indicators */}
       {[...Array(4)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 bg-neon-cyan rounded-full"
+          className="absolute w-1.5 h-1.5 bg-neon-cyan rounded-full"
           style={{
             left: '50%',
             top: '10px',
@@ -99,13 +99,11 @@ const RiskGauge = ({ score }: RiskGaugeProps) => {
           }}
           animate={{
             rotate: i * 90,
-            scale: score > i * 25 ? [1, 1.5, 1] : 0.5,
-            opacity: score > i * 25 ? [0.5, 1, 0.5] : 0.3
+            scale: score > i * 25 ? 1 : 0.5,
+            opacity: score > i * 25 ? 0.8 : 0.3
           }}
           transition={{
-            rotate: { duration: 0 },
-            scale: { duration: 1.5, repeat: Infinity },
-            opacity: { duration: 1.5, repeat: Infinity }
+            rotate: { duration: 0 }
           }}
         />
       ))}

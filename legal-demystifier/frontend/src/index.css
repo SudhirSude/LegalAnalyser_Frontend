@@ -6,62 +6,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LegalLens AI Cyberpunk Design System */
+/* LegalLens AI Modern Futuristic Design System */
 @layer base {
   :root {
-    /* Cyberpunk Color Palette */
-    --void-black: 240 3% 4%;
-    --deep-navy: 240 15% 11%;
-    --cyber-dark: 240 10% 8%;
-    --neon-blue: 195 100% 50%;
-    --electric-cyan: 180 100% 50%;
-    --cyber-magenta: 300 100% 50%;
-    --neural-purple: 280 100% 70%;
-    --hologram-green: 120 100% 50%;
-    --danger-red: 0 100% 60%;
-    --warning-amber: 45 100% 60%;
-    --success-lime: 90 100% 50%;
+    /* Modern Futuristic Color Palette */
+    --void-black: 240 3% 6%;
+    --deep-navy: 220 20% 15%;
+    --cyber-dark: 220 15% 12%;
+    --neon-blue: 210 80% 50%;
+    --electric-cyan: 190 70% 50%;
+    --cyber-magenta: 280 60% 50%;
+    --neural-purple: 260 60% 60%;
+    --hologram-green: 140 60% 45%;
+    --danger-red: 0 70% 55%;
+    --warning-amber: 40 70% 55%;
+    --success-lime: 100 60% 45%;
     
     /* Base System Colors */
     --background: var(--void-black);
-    --foreground: 0 0% 98%;
+    --foreground: 0 0% 92%;
     
     --card: var(--cyber-dark);
-    --card-foreground: 0 0% 95%;
+    --card-foreground: 0 0% 90%;
     
     --popover: var(--deep-navy);
-    --popover-foreground: 0 0% 95%;
+    --popover-foreground: 0 0% 90%;
     
     --primary: var(--neon-blue);
     --primary-foreground: var(--void-black);
     
     --secondary: var(--deep-navy);
-    --secondary-foreground: 0 0% 90%;
+    --secondary-foreground: 0 0% 85%;
     
-    --muted: 240 5% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 220 10% 18%;
+    --muted-foreground: 0 0% 70%;
     
     --accent: var(--electric-cyan);
     --accent-foreground: var(--void-black);
     
     --destructive: var(--danger-red);
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 95%;
     
-    --border: 240 5% 18%;
-    --input: 240 5% 12%;
+    --border: 220 10% 20%;
+    --input: 220 10% 15%;
     --ring: var(--neon-blue);
     
-    --radius: 0.75rem;
+    --radius: 0.5rem;
     
     /* Neural Network Colors */
     --neural-node: var(--neon-blue);
     --neural-connection: var(--electric-cyan);
     --neural-pulse: var(--cyber-magenta);
     
-    /* Holographic Effects */
-    --holo-glow: 0 0 30px hsl(var(--neon-blue) / 0.5);
-    --holo-border: 0 0 20px hsl(var(--electric-cyan) / 0.3);
-    --holo-shadow: 0 0 40px hsl(var(--cyber-magenta) / 0.2);
+    /* Subtle Effects */
+    --holo-glow: 0 0 15px hsl(var(--neon-blue) / 0.3);
+    --holo-border: 0 0 10px hsl(var(--electric-cyan) / 0.2);
+    --holo-shadow: 0 0 20px hsl(var(--cyber-magenta) / 0.1);
     
     /* Risk Level Colors */
     --risk-low: var(--success-lime);
@@ -82,10 +82,10 @@
 }
 
 @layer utilities {
-  /* Holographic Effects */
+  /* Subtle Border Effects */
   .holo-border {
     border: 1px solid transparent;
-    background: linear-gradient(135deg, hsl(var(--neon-blue) / 0.3), hsl(var(--electric-cyan) / 0.3)) border-box;
+    background: linear-gradient(135deg, hsl(var(--neon-blue) / 0.15), hsl(var(--electric-cyan) / 0.15)) border-box;
     border-radius: inherit;
     position: relative;
   }
@@ -97,20 +97,21 @@
     z-index: -1;
     margin: -1px;
     border-radius: inherit;
-    background: linear-gradient(135deg, hsl(var(--neon-blue) / 0.5), hsl(var(--electric-cyan) / 0.5));
+    background: linear-gradient(135deg, hsl(var(--neon-blue) / 0.25), hsl(var(--electric-cyan) / 0.25));
   }
 
-  /* Neural Network Pulse */
+  /* Subtle Pulse Effect */
   .neural-pulse {
-    animation: neural-pulse 2s ease-in-out infinite;
+    animation: neural-pulse 3s ease-in-out infinite;
+    animation-delay: calc(var(--delay, 0) * 1s);
   }
 
-  /* Cyberpunk Text Glow */
+  /* Modern Text Enhancement */
   .cyber-glow {
-    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+    text-shadow: 0 0 5px currentColor;
   }
 
-  /* Holographic Scan Lines */
+  /* Subtle Scan Effect */
   .scan-lines {
     position: relative;
     overflow: hidden;
@@ -122,32 +123,33 @@
     top: 0;
     left: -100%;
     width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, hsl(var(--neon-blue)), transparent);
-    animation: scan 2s linear infinite;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--neon-blue) / 0.5), transparent);
+    animation: scan 3s linear infinite;
   }
 
-  /* Neon Hover Effect */
+  /* Clean Hover Effect */
   .neon-hover {
     transition: all 0.3s ease;
   }
   
   .neon-hover:hover {
-    box-shadow: 0 0 20px hsl(var(--neon-blue) / 0.5), 0 0 40px hsl(var(--neon-blue) / 0.3);
-    transform: translateY(-2px);
+    box-shadow: 0 0 10px hsl(var(--neon-blue) / 0.3);
+    transform: translateY(-1px);
   }
 
-  /* Floating Animation */
+  /* Subtle Float Animation */
   .float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
+    animation-delay: calc(var(--delay, 0) * 1s);
   }
 
-  /* Neural Connection Lines */
+  /* Subtle Background Pattern */
   .neural-bg {
     background-image: 
-      radial-gradient(circle at 20% 50%, hsl(var(--neon-blue) / 0.1) 2px, transparent 2px),
-      radial-gradient(circle at 80% 20%, hsl(var(--electric-cyan) / 0.1) 2px, transparent 2px),
-      radial-gradient(circle at 40% 80%, hsl(var(--cyber-magenta) / 0.05) 2px, transparent 2px);
+      radial-gradient(circle at 20% 50%, hsl(var(--neon-blue) / 0.05) 2px, transparent 2px),
+      radial-gradient(circle at 80% 20%, hsl(var(--electric-cyan) / 0.05) 2px, transparent 2px),
+      radial-gradient(circle at 40% 80%, hsl(var(--cyber-magenta) / 0.03) 2px, transparent 2px);
     background-size: 100px 100px, 150px 150px, 200px 200px;
     animation: neural-drift 20s linear infinite;
   }
@@ -155,11 +157,11 @@
 
 @keyframes neural-pulse {
   0%, 100% {
-    opacity: 0.6;
+    opacity: 0.8;
     transform: scale(1);
   }
   50% {
-    opacity: 1;
+    opacity: 0.95;
     transform: scale(1.05);
   }
 }
@@ -178,7 +180,7 @@
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
   }
 }
 
