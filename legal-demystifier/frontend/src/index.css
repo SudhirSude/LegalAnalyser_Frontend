@@ -6,68 +6,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LegalLens AI Modern Futuristic Design System */
+/* LegalLens AI Bright Professional Design System */
 @layer base {
   :root {
-    /* Modern Futuristic Color Palette */
-    --void-black: 240 3% 6%;
-    --deep-navy: 220 20% 15%;
-    --cyber-dark: 220 15% 12%;
-    --neon-blue: 210 80% 50%;
-    --electric-cyan: 190 70% 50%;
-    --cyber-magenta: 280 60% 50%;
-    --neural-purple: 260 60% 60%;
-    --hologram-green: 140 60% 45%;
-    --danger-red: 0 70% 55%;
-    --warning-amber: 40 70% 55%;
-    --success-lime: 100 60% 45%;
+    /* Bright Professional Color Palette */
+    --primary-blue: 219 47% 45%; /* #3C64A7 */
+    --neutral-gray: 220 7% 38%; /* #595E66 */
+    --light-bg: 40 15% 97%; /* #F8F7F5 */
+    --accent-gold: 39 36% 56%; /* #C6A259 */
+    
+    /* Extended Color Palette */
+    --primary-light: 219 47% 65%;
+    --primary-dark: 219 47% 35%;
+    --neutral-light: 220 7% 75%;
+    --neutral-dark: 220 7% 25%;
+    --accent-light: 39 36% 76%;
+    --accent-dark: 39 36% 46%;
+    --success-green: 142 52% 48%;
+    --warning-orange: 32 86% 65%;
+    --danger-red: 0 72% 51%;
     
     /* Base System Colors */
-    --background: var(--void-black);
-    --foreground: 0 0% 92%;
+    --background: var(--light-bg);
+    --foreground: var(--neutral-dark);
     
-    --card: var(--cyber-dark);
-    --card-foreground: 0 0% 90%;
+    --card: 0 0% 100%;
+    --card-foreground: var(--neutral-dark);
     
-    --popover: var(--deep-navy);
-    --popover-foreground: 0 0% 90%;
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--neutral-dark);
     
-    --primary: var(--neon-blue);
-    --primary-foreground: var(--void-black);
+    --primary: var(--primary-blue);
+    --primary-foreground: 0 0% 100%;
     
-    --secondary: var(--deep-navy);
-    --secondary-foreground: 0 0% 85%;
+    --secondary: var(--neutral-gray);
+    --secondary-foreground: 0 0% 100%;
     
-    --muted: 220 10% 18%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 220 10% 94%;
+    --muted-foreground: var(--neutral-gray);
     
-    --accent: var(--electric-cyan);
-    --accent-foreground: var(--void-black);
+    --accent: var(--accent-gold);
+    --accent-foreground: 0 0% 100%;
     
     --destructive: var(--danger-red);
-    --destructive-foreground: 0 0% 95%;
+    --destructive-foreground: 0 0% 100%;
     
-    --border: 220 10% 20%;
-    --input: 220 10% 15%;
-    --ring: var(--neon-blue);
+    --border: 220 13% 85%;
+    --input: 220 13% 90%;
+    --ring: var(--primary-blue);
     
     --radius: 0.5rem;
     
-    /* Neural Network Colors */
-    --neural-node: var(--neon-blue);
-    --neural-connection: var(--electric-cyan);
-    --neural-pulse: var(--cyber-magenta);
+    /* Accent Colors */
+    --neural-node: var(--primary-blue);
+    --neural-connection: var(--primary-light);
+    --neural-pulse: var(--accent-gold);
     
     /* Subtle Effects */
-    --holo-glow: 0 0 15px hsl(var(--neon-blue) / 0.3);
-    --holo-border: 0 0 10px hsl(var(--electric-cyan) / 0.2);
-    --holo-shadow: 0 0 20px hsl(var(--cyber-magenta) / 0.1);
+    --holo-glow: 0 0 15px hsl(var(--primary-blue) / 0.3);
+    --holo-border: 0 0 10px hsl(var(--primary-light) / 0.2);
+    --holo-shadow: 0 0 20px hsl(var(--accent-gold) / 0.1);
     
     /* Risk Level Colors */
-    --risk-low: var(--success-lime);
-    --risk-medium: var(--warning-amber);
+    --risk-low: var(--success-green);
+    --risk-medium: var(--warning-orange);
     --risk-high: var(--danger-red);
-    --risk-critical: var(--cyber-magenta);
+    --risk-critical: var(--neutral-dark);
   }
 }
 
@@ -82,12 +86,13 @@
 }
 
 @layer utilities {
-  /* Subtle Border Effects */
+  /* Professional Border Effects */
   .holo-border {
-    border: 1px solid transparent;
-    background: linear-gradient(135deg, hsl(var(--neon-blue) / 0.15), hsl(var(--electric-cyan) / 0.15)) border-box;
+    border: 1px solid hsl(var(--border));
+    background: white;
     border-radius: inherit;
     position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
   
   .holo-border::before {
@@ -97,7 +102,7 @@
     z-index: -1;
     margin: -1px;
     border-radius: inherit;
-    background: linear-gradient(135deg, hsl(var(--neon-blue) / 0.25), hsl(var(--electric-cyan) / 0.25));
+    background: linear-gradient(135deg, hsl(var(--primary-blue) / 0.05), hsl(var(--accent-gold) / 0.05));
   }
 
   /* Subtle Pulse Effect */
@@ -108,7 +113,8 @@
 
   /* Modern Text Enhancement */
   .cyber-glow {
-    text-shadow: 0 0 5px currentColor;
+    color: hsl(var(--primary-blue));
+    font-weight: 600;
   }
 
   /* Subtle Scan Effect */
@@ -124,7 +130,7 @@
     left: -100%;
     width: 100%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(var(--neon-blue) / 0.5), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--primary-blue) / 0.3), transparent);
     animation: scan 3s linear infinite;
   }
 
@@ -134,7 +140,7 @@
   }
   
   .neon-hover:hover {
-    box-shadow: 0 0 10px hsl(var(--neon-blue) / 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transform: translateY(-1px);
   }
 
@@ -146,10 +152,11 @@
 
   /* Subtle Background Pattern */
   .neural-bg {
+    background-color: hsl(var(--light-bg));
     background-image: 
-      radial-gradient(circle at 20% 50%, hsl(var(--neon-blue) / 0.05) 2px, transparent 2px),
-      radial-gradient(circle at 80% 20%, hsl(var(--electric-cyan) / 0.05) 2px, transparent 2px),
-      radial-gradient(circle at 40% 80%, hsl(var(--cyber-magenta) / 0.03) 2px, transparent 2px);
+      radial-gradient(circle at 20% 50%, hsl(var(--primary-blue) / 0.03) 2px, transparent 2px),
+      radial-gradient(circle at 80% 20%, hsl(var(--accent-gold) / 0.03) 2px, transparent 2px),
+      radial-gradient(circle at 40% 80%, hsl(var(--primary-light) / 0.02) 2px, transparent 2px);
     background-size: 100px 100px, 150px 150px, 200px 200px;
     animation: neural-drift 20s linear infinite;
   }
@@ -157,12 +164,12 @@
 
 @keyframes neural-pulse {
   0%, 100% {
-    opacity: 0.8;
+    opacity: 0.9;
     transform: scale(1);
   }
   50% {
-    opacity: 0.95;
-    transform: scale(1.05);
+    opacity: 1;
+    transform: scale(1.03);
   }
 }
 
@@ -177,10 +184,10 @@
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
   }
 }
 
@@ -189,6 +196,6 @@
     background-position: 0% 0%, 0% 0%, 0% 0%;
   }
   100% {
-    background-position: 100% 100%, -100% 100%, 50% -100%;
+    background-position: 100px 100px, 150px 150px, 200px 200px;
   }
 }
