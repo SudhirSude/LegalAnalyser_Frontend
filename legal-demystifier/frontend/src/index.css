@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LegalLens AI Cyberpunk Design System */
+@layer base {
+  :root {
+    /* Cyberpunk Color Palette */
+    --void-black: 240 3% 4%;
+    --deep-navy: 240 15% 11%;
+    --cyber-dark: 240 10% 8%;
+    --neon-blue: 195 100% 50%;
+    --electric-cyan: 180 100% 50%;
+    --cyber-magenta: 300 100% 50%;
+    --neural-purple: 280 100% 70%;
+    --hologram-green: 120 100% 50%;
+    --danger-red: 0 100% 60%;
+    --warning-amber: 45 100% 60%;
+    --success-lime: 90 100% 50%;
+    
+    /* Base System Colors */
+    --background: var(--void-black);
+    --foreground: 0 0% 98%;
+    
+    --card: var(--cyber-dark);
+    --card-foreground: 0 0% 95%;
+    
+    --popover: var(--deep-navy);
+    --popover-foreground: 0 0% 95%;
+    
+    --primary: var(--neon-blue);
+    --primary-foreground: var(--void-black);
+    
+    --secondary: var(--deep-navy);
+    --secondary-foreground: 0 0% 90%;
+    
+    --muted: 240 5% 15%;
+    --muted-foreground: 0 0% 65%;
+    
+    --accent: var(--electric-cyan);
+    --accent-foreground: var(--void-black);
+    
+    --destructive: var(--danger-red);
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 5% 18%;
+    --input: 240 5% 12%;
+    --ring: var(--neon-blue);
+    
+    --radius: 0.75rem;
+    
+    /* Neural Network Colors */
+    --neural-node: var(--neon-blue);
+    --neural-connection: var(--electric-cyan);
+    --neural-pulse: var(--cyber-magenta);
+    
+    /* Holographic Effects */
+    --holo-glow: 0 0 30px hsl(var(--neon-blue) / 0.5);
+    --holo-border: 0 0 20px hsl(var(--electric-cyan) / 0.3);
+    --holo-shadow: 0 0 40px hsl(var(--cyber-magenta) / 0.2);
+    
+    /* Risk Level Colors */
+    --risk-low: var(--success-lime);
+    --risk-medium: var(--warning-amber);
+    --risk-high: var(--danger-red);
+    --risk-critical: var(--cyber-magenta);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer utilities {
+  /* Holographic Effects */
+  .holo-border {
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, hsl(var(--neon-blue) / 0.3), hsl(var(--electric-cyan) / 0.3)) border-box;
+    border-radius: inherit;
+    position: relative;
+  }
+  
+  .holo-border::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, hsl(var(--neon-blue) / 0.5), hsl(var(--electric-cyan) / 0.5));
+  }
+
+  /* Neural Network Pulse */
+  .neural-pulse {
+    animation: neural-pulse 2s ease-in-out infinite;
+  }
+
+  /* Cyberpunk Text Glow */
+  .cyber-glow {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+
+  /* Holographic Scan Lines */
+  .scan-lines {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .scan-lines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--neon-blue)), transparent);
+    animation: scan 2s linear infinite;
+  }
+
+  /* Neon Hover Effect */
+  .neon-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .neon-hover:hover {
+    box-shadow: 0 0 20px hsl(var(--neon-blue) / 0.5), 0 0 40px hsl(var(--neon-blue) / 0.3);
+    transform: translateY(-2px);
+  }
+
+  /* Floating Animation */
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Neural Connection Lines */
+  .neural-bg {
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsl(var(--neon-blue) / 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 80% 20%, hsl(var(--electric-cyan) / 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 40% 80%, hsl(var(--cyber-magenta) / 0.05) 2px, transparent 2px);
+    background-size: 100px 100px, 150px 150px, 200px 200px;
+    animation: neural-drift 20s linear infinite;
+  }
+}
+
+@keyframes neural-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes neural-drift {
+  0% {
+    background-position: 0% 0%, 0% 0%, 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%, -100% 100%, 50% -100%;
+  }
+}
